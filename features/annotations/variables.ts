@@ -1,4 +1,4 @@
-let apples: number = 5;
+let apples = 5; // type inference
 
 let speed: string = "fast";
 
@@ -24,4 +24,9 @@ let car: Car = new Car();
 let point: { x: number; y: number } = {
   x: 10,
   y: 20,
+};
+
+// function
+const logNum: (i: number) => void = (i: number) => {
+  console.log(i);
 };
