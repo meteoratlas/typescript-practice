@@ -6,5 +6,16 @@ const user = new User({ name: "bret", age: 20 });
 
 user.set({ name: "polly", age: 999 });
 
-console.log(user.get("name"));
-console.log(user.get("age"));
+user.on("change", () => {
+  console.log("change 1");
+});
+user.on("change", () => {
+  console.log("change 2");
+});
+user.on("save", () => {
+  console.log("save was triggered");
+});
+
+user.trigger("change");
+user.trigger("save");
+user.trigger("fake ");
