@@ -1,10 +1,9 @@
-import { User } from "./models/User";
-import axios from "axios";
+import { User, UserProps } from "./models/User";
+import axios, { AxiosResponse } from "axios";
+import { Collection } from "./models/Collection";
 
-const user = User.buildUser({ id: 2 });
-
-user.on("change", function () {
-  console.log(user);
+const collection = User.buildUserCollection();
+collection.on("change", () => {
+  console.log(collection);
 });
-
-user.fetch();
+collection.fetch();
