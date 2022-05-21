@@ -1,9 +1,6 @@
-import { User, UserProps } from "./models/User";
-import axios, { AxiosResponse } from "axios";
-import { Collection } from "./models/Collection";
+import { User } from "./models/User";
+import { UserForm } from "./views/UserForm";
 
-const collection = User.buildUserCollection();
-collection.on("change", () => {
-  console.log(collection);
-});
-collection.fetch();
+const user = User.buildUser({ name: "Name!", age: 201 });
+const userForm = new UserForm(document.getElementById("root"), user);
+userForm.render();
